@@ -1,0 +1,8 @@
+C:\Users\ADMIN\Downloads\TwitterTowers\TwitterTowers\bin\Debug\TwitterTowers.exe.config
+C:\Users\ADMIN\Downloads\TwitterTowers\TwitterTowers\bin\Debug\TwitterTowers.exe
+C:\Users\ADMIN\Downloads\TwitterTowers\TwitterTowers\bin\Debug\TwitterTowers.pdb
+C:\Users\ADMIN\Downloads\TwitterTowers\TwitterTowers\obj\Debug\TwitterTowers.csproj.AssemblyReference.cache
+C:\Users\ADMIN\Downloads\TwitterTowers\TwitterTowers\obj\Debug\TwitterTowers.csproj.SuggestedBindingRedirects.cache
+C:\Users\ADMIN\Downloads\TwitterTowers\TwitterTowers\obj\Debug\TwitterTowers.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\Downloads\TwitterTowers\TwitterTowers\obj\Debug\TwitterTowers.exe
+C:\Users\ADMIN\Downloads\TwitterTowers\TwitterTowers\obj\Debug\TwitterTowers.pdb
