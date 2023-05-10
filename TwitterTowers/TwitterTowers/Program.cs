@@ -11,74 +11,81 @@ namespace HomeTest
         static void Main(string[] args)
         {
 
-            int width, heigh, result, i, j, space, star = 3, divide, divide1, rest;
-            double side;
-            while (true)
+            int width, heigh, result, i, j, space, star = 3, divide, divide1, rest;//משתנים
+            double side;//משתנה דאבל להחזרה עם נקודה עשרותי בשביל היקף המשולש
+            while (true)//לולאת שבודקת שהמשתמש עדיין מעוניין בתוכנית 
             {
-                Console.WriteLine("Enter 1 for a square tower, 2 for a triangular tower and 3 for exit");
-                result = int.Parse(Console.ReadLine());
-                if (result == 3)
+                Console.WriteLine("Enter 1 for a square tower, 2 for a triangular tower and 3 for exit");//פניה למשתמש להכניס באיזה מסלול הוא מעוניין
+                result = int.Parse(Console.ReadLine());//הכנסת קלט המשתמש למשתנה
+                if (result == 3)//בדיקה אם הקלט 3 אז תצא תעצור את הלולאה והתוכנית תיפסק
                     break;
-                Console.WriteLine("Enter the height of the tower, minimum 2");
-                heigh = int.Parse(Console.ReadLine());
-                if (result == 1)
+                Console.WriteLine("Enter the height of the tower, minimum 2"); // פניה למשתמש להכניס את גובה המגדל   
+                 heigh = int.Parse(Console.ReadLine());//הכנסת קלט המשתמש למשתנה
+                if (result == 1)//אם התוצאה 1מגדל מרובע
                 {
-                    Console.WriteLine("Enter the width of the tower");
-                    width = int.Parse(Console.ReadLine());
-                    if (width == heigh || heigh - width > 5)
-                        Console.WriteLine(width * heigh);
-                    else
-                        Console.WriteLine(width * 2 + heigh * 2);
+                    Console.WriteLine("Enter the width of the tower");//פניה למשתמש להכניס את אורך המגדל
+                    width = int.Parse(Console.ReadLine());//הכנסת קלט המשתמש למשתנה
+                    if (width == heigh || heigh - width > 5)//אם הגובה שווה לאורך או ההפרש בין הגובה לאורך גדול מ5 
+                        Console.WriteLine(width * heigh);//התוכנית תתדפיס את שטח המגדל
+                    else//אחרת
+                        Console.WriteLine(width * 2 + heigh * 2);//התוכנית תתדפיס את היקף המגדל
                 }
-                else if (result == 2)
+                else if (result == 2)//אם התוצאה 2 מגדל משולש
                 {
-                    Console.WriteLine("Enter the width of the tower");
-                    width = int.Parse(Console.ReadLine());
-                    Console.WriteLine("Enter 1 to calculate the perimeter of the triangle or 2 to print the triangle");
-                    result = int.Parse(Console.ReadLine());
-                    side = Math.Sqrt(Math.Pow(width / 2, 2) + Math.Pow(heigh, 2));
-                    if (result == 1)
+                    Console.WriteLine("Enter the width of the tower");//פניה למשתמש להכניס את אורך המגדל
+                    width = int.Parse(Console.ReadLine());//הכנסת קלט המשתמש למשתנה
+                    Console.WriteLine("Enter 1 to calculate the perimeter of the triangle or 2 to print the triangle");//פניה למשתמש להקשי 1 לחישוב היקף המגדל או 2 להדפס המגדל
+                    result = int.Parse(Console.ReadLine());//הכנסת קלט המשתמש למשתנה
+                    side = Math.Sqrt(Math.Pow(width / 2, 2) + Math.Pow(heigh, 2));//חישוב צלע המשולש ע"י הגובה והאורך ע"י משפט פיטגורס
+                    if (result == 1)//אם התוצאה 1 חישוב הקיף המשולש
                     {
-                        Console.WriteLine(width + side * 2);
+                        Console.WriteLine(width + side * 2);//התוכנית תדפיס את הקיף המשולש
                     }
-                    else if (result == 2)
+                    else if (result == 2)//אם התוצאה 2 הדפסת המשולש
                     {
-                        if (width % 2 == 0 || width > heigh * 2)
-                            Console.WriteLine("The triangle can't be printed");
-                        else
+                        if (width % 2 == 0 || width > heigh * 2)//בדיקה אם האורך הוא אי זוג או אם האורך גדול ביותר מי 2 מגודלו של הגובה
+                            Console.WriteLine("The triangle can't be printed");//אם כן התוכנית תתדפיס למשתמש שאי אפשר להדפיס משולש כזה
+                        else//אחרת
                         {
-                            divide = (heigh - 2) / ((width / 2) - 1);
-                            divide1 = divide;
-                            space = (width - 3) / 2;
-                            rest = (heigh - 2) % ((width / 2) - 1);
+                            divide = (heigh - 2) / ((width / 2) - 1);//משתנה שמכיל כמה שורות מכל מספר יהיו
+                            divide1 = divide;//משתנה שמכיל דיבאיד את כדי לא להרוס אותו אח"כ בחישוב
+                            space = (width - 3) / 2;//משתנה שמכיל כמה רוחים צריל להשאיר לפני ואחרי הכוכבית
+                            rest = (heigh - 2) % ((width / 2) - 1);//משתנה שמכיל את השארית של השורות שנדפיב רותו בקבוצה הראשונה
 
-                            for (i = 1; i <= heigh; i++)
+                            for (i = 1; i <= heigh; i++)//לולאה שעוברת על השורות של המגדל בכל סיבוב שלה היא יורדת לעומק המגדל
                             {
-                                for (j = 0; j < width; j++)
+                                for (j = 0; j < width; j++)//לולאה שעוברת לאורך כל שורה במגדל
                                 {
-                                    if (j == (width / 2) & i == 1)
-                                        Console.Write("*");
-                                    else if (i == 1)
-                                        Console.Write(" ");
-                                    else if (i == heigh)
-                                        Console.Write("*");
-                                    else if (j < space || j >= space + star)
-                                        Console.Write(" ");
-                                    else if (i <= divide + rest + 1)
-                                        Console.Write("*");
-                                    else if (j < space || j >= space + star)
-                                        Console.Write(" ");
-                                    else if (i > divide + rest + 1)
-                                        Console.Write("*");
-                                    if (i > divide1 + rest + 1)
+                                    if (j == (width / 2) & i == 1)//אם אנחנו בשורה הראשונה וגם במקום האמצאי אז תדפיס כוכבית, זה ראש המגדל
+                                        Console.Write("*");//הדפסת הכוכבית
+                                    else if (i == 1)//אם אנחנו בשורה הראשונה
+                                        Console.Write(" ");//בכל שאר המקומות תדפיס רווח
+                                    else if (i == heigh)//אם אנחנו בשורה התחתית ביותר של המגדל
+                                        Console.Write("*");//תדפיס את כולה כוכביות
+                                    else if (j < space || j >= space + star)//3 אם ג'י קטן מהמשתנה של הרווח או שג'י גדול או שווה לרווח ועוד
+                                                                            // אז תדפיס רווח, זאת בדיקה רק על הפעם הראשונה של הקפיצה כי תמיד ההדפסה הבאה
+                                                                            // אחרי הראש של המגדל תהיי שלוש וזאת בדיקה ששמה רווחים לפני ואחרי השלוש כוכדביות שצריך להדפיס  
+                                        Console.Write(" ");//הדפסת הרווח
+                                    else if (i <= divide + rest + 1)//אם אי קטן או שווה למספר השורות שצריך להדפיס מהמספר הזה ועוד השארית של השורות שמוסיפים לסיבוב הראשון ועוד אחד כי הלולאה מתחיל ב1ולא ב0
+                                        Console.Write("*");//תדפיס כוכבית 
+                                    //עד כאן זאת היית ההדפסה של ראשותחתית המגדל ושל החתיכה העליון של הבניין ברוחב 3 כוכביות מכאן והלאה וזה מחשב כמה שורות נשאר להדפיס ובאיזה אורך כדי ליצור מגדל מושלם
+                                    else if (j < space || j >= space + star)//אם ג'י קטן מרווח או שג'י גדול או שווה לרווח ועוד המשתנה של הכוכבית  
+                                        Console.Write(" ");//תדפיס רווחים לפני ואחרי כל הכוכביות 
+                                    else if (i > divide + rest + 1)//אם אי גדול ממספר השורות שצריך להדפיס בכל מספר ועוד השארית של השורות שמדפיסים במספר הראשון ועוד 1 כי האי שווה ל1 ולא ל0
+                                                                   //זאת בדיקה אם עברנו את כל השורות של המספר שלוש 
+                                        Console.Write("*");//תדפיס כוכבית
+                                    if (i > divide1 + rest + 1)//אותה הבדיקה כמו מקודם רק עם המשתנה המועתק של דיוייד אם עברנו את הדפסת השורות של השלוש כוכביות עכשיו אנחנו מתחילים לרוץ עד המספר
+                                                               //הרצוי כשבכל פעם אנחנו נוסיף שתי כוכביות להדפסה ונדפיס כמספר השורות הרצוי
                                     {
-                                        star += 2;
-                                        space--;
-                                        divide1 += divide;
+                                        star += 2;//הוספת 2 למשתנה שמראה לנו כמה כוכביות צריך בשורה הנוחכית
+                                        space--;//משתנה שמוריד רווח כי הוספנו כוכביות מוריד רוח אחד ולא 2 כי הוא מחולק ל2 לפני ואחרי הכוכביות אז זה יוצא בסופו של דבר2 
+                                        divide1 += divide;//עוזר לדעת מתי תצריך להעלות את שאר המשתנים בכל פעם שהלולאה נכנסת לפה זאת אומרת שהודפסו
+                                                          //מספר השורות הרציות למספר הנוחכי ואז מוסיפים לו עוד פעם את המשתנה וככה שוב עד שניגיע למספר הרצוי
+                                                          //
                                     }
                                 }
 
-                                Console.Write("\n");
+                                Console.Write("\n");//ירידת שורה אחרי ההדפסה של כל השורה הרצויה
                             }
 
                         }
